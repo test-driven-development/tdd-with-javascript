@@ -1,0 +1,78 @@
+{
+  "name": "tdd-with-javascript",
+  "version": "1.0.0",
+  "main": "index.sh",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,html}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": "NODE_ENV=testing jest --forceExit --notify --detectOpenHandles  --silent src/exercises",
+    "tdd": "yarn test -- --watch",
+    "validate": "yarn format && yarn lint && yarn test -- --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn validate"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "ramda": "0.26.1",
+    "ramda-adjunct": "2.18.0",
+    "ramda-fantasy": "0.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^23.4.2",
+    "bluebird": "3.7.1",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "growl": "1.10.5",
+    "husky": "3.0.1",
+    "immutable": "4.0.0-rc.12",
+    "immutable-ext": "1.1.5",
+    "jest": "24.9.0",
+    "mock-req-res": "^1.0.2",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.15.2",
+    "rimraf": "^2.6.2",
+    "should": "13.2.3",
+    "start-server-and-test": "1.9.1",
+    "testdouble": "3.12.2",
+    "testdouble-jest": "2.0.0"
+  },
+  "jest": {
+    "forceCoverageMatch": [
+      "**/*.spec.js"
+    ],
+    "notify": true,
+    "notifyMode": "always",
+    "restoreMocks": true,
+    "setupFiles": [
+      "<rootDir>/setup-jest.js"
+    ],
+    "testMatch": [
+      "**/+(*.)+(spec).+(js)"
+    ],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
+    "testURL": "http://localhost/",
+    "verbose": true
+  }
+}

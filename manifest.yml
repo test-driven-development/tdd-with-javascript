@@ -1,0 +1,9 @@
+applications:
+  - path: .
+    name: digital-swiss-gold-beta-middle-tier
+    buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+    environment_json: {}
+    memory: 256M
+    instances: 1
+    disk_quota: 1024M
+    services: []
