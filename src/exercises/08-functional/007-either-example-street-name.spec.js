@@ -50,7 +50,10 @@ describe('either example collection', () => {
         fromNullable(user.address)
           .chain(address => fromNullable(address.street))
           .map(street => street.name)
-          .fold(() => 'no street', name => name)
+          .fold(
+            () => 'no street',
+            name => name,
+          )
 
       it('user has no address', () => {
         user.address = null

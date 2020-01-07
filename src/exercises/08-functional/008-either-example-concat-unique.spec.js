@@ -28,7 +28,10 @@ describe('concat unique', () => {
 
   describe('functional', () => {
     const concatUniq = (x, ys) =>
-      fromNullable(ys.filter(y => y === x)[0]).fold(() => ys.concat(x), y => ys)
+      fromNullable(ys.filter(y => y === x)[0]).fold(
+        () => ys.concat(x),
+        y => ys,
+      )
 
     it('concatenates', () => {
       const x = {}
