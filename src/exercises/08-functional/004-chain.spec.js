@@ -9,7 +9,10 @@ describe.skip('composable error handling', () => {
     const getPort = () =>
       tryCatch(() => fs.readFileSync('server/08-functional/config.json'))
         .chain(c => tryCatch(() => JSON.parse(c)))
-        .fold(e => 3000, c => c.port)
+        .fold(
+          e => 3000,
+          c => c.port,
+        )
 
     getPort().should.equal(8888)
   })
@@ -18,7 +21,10 @@ describe.skip('composable error handling', () => {
     const getPort = () =>
       tryCatch(() => fs.readFileSync('server/08-functional/config-error.json'))
         .chain(c => tryCatch(() => JSON.parse(c)))
-        .fold(e => 3000, c => c.port)
+        .fold(
+          e => 3000,
+          c => c.port,
+        )
 
     getPort().should.equal(3000)
   })

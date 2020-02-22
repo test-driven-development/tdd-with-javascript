@@ -35,7 +35,10 @@ describe('either', () => {
     Right(2)
       .map(x => x + 1)
       .map(x => x / 2)
-      .fold(x => 'error', y => y)
+      .fold(
+        x => 'error',
+        y => y,
+      )
       .should.equal(1.5)
   })
 
@@ -43,7 +46,10 @@ describe('either', () => {
     Left(2)
       .map(x => x + 1)
       .map(x => x / 2)
-      .fold(x => 'error', y => y)
+      .fold(
+        x => 'error',
+        y => y,
+      )
       .should.equal('error')
   })
 
@@ -61,24 +67,36 @@ describe('either', () => {
   it('find nullable color', () => {
     findNullableColor('red')
       .map(x => x.slice(1))
-      .fold(x => 'no color', x => x.toUpperCase())
+      .fold(
+        x => 'no color',
+        x => x.toUpperCase(),
+      )
       .should.equal('FF4444')
 
     findNullableColor('green')
       .map(x => x.slice(1))
-      .fold(x => 'no color', x => x.toUpperCase())
+      .fold(
+        x => 'no color',
+        x => x.toUpperCase(),
+      )
       .should.equal('no color')
   })
 
   it('find either color', () => {
     findEitherColor('red')
       .map(x => x.slice(1))
-      .fold(x => 'no color', x => x.toUpperCase())
+      .fold(
+        x => 'no color',
+        x => x.toUpperCase(),
+      )
       .should.equal('FF4444')
 
     findEitherColor('green')
       .map(x => x.slice(1))
-      .fold(x => 'no color', x => x.toUpperCase())
+      .fold(
+        x => 'no color',
+        x => x.toUpperCase(),
+      )
       .should.equal('no color')
   })
 })

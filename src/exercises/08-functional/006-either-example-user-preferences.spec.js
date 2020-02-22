@@ -28,7 +28,10 @@ describe('either example collection', () => {
       const getPrefs = user =>
         (user.premium ? Right(user) : Left('not premium'))
           .map(u => u.preferences)
-          .fold(() => defaultPrefs, p => loadPrefs(p))
+          .fold(
+            () => defaultPrefs,
+            p => loadPrefs(p),
+          )
 
       it('user is premium', () => {
         user.premium = 'premium'

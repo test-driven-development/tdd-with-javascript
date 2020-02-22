@@ -32,7 +32,10 @@ describe.skip('wrap examples', () => {
     const wrapExamples = example =>
       fromNullable(example.previewPath)
         .chain(readFile)
-        .fold(() => example, x => Object.assign(example, {preview: x}))
+        .fold(
+          () => example,
+          x => Object.assign(example, {preview: x}),
+        )
 
     it('wraps examples', () => {
       const example = {previewPath: 'server/08-functional/config.json'}
